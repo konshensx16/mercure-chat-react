@@ -1,10 +1,11 @@
 import React from 'react';
+import {Link} from "react-router-dom";
 
 
 class Conversation extends React.Component {
     render() {
         return (
-            <a href="#" className="list-group-item list-group-item-action rounded-0">
+            <Link to={"/conversation/" + this.props.conversation.conversationId} className="list-group-item list-group-item-action rounded-0">
                 <div className="media">
                     <img src="https://res.cloudinary.com/mhmd/image/upload/v1564960395/avatar_usae7z.svg" alt="user"
                          width="50" className="rounded-circle"/>
@@ -17,7 +18,7 @@ class Conversation extends React.Component {
                         <p className="font-italic mb-0 text-small">{this.props.conversation.content}</p>
                     </div>
                 </div>
-            </a>
+            </Link>
         );
     }
 }
