@@ -27,11 +27,15 @@ class Left extends React.Component {
                     <div className="messages-box">
                         <div className="list-group rounded-0">
                             {
-                                this.props.items.map((conversation, index) => {
-                                    return (
-                                        <Conversation conversation={conversation} key={index}/>
-                                    )
-                                })
+                                this.props.items != undefined ?
+
+                                    this.props.items.map((conversation, index) => {
+                                        return (
+                                            <Conversation conversation={conversation} key={index}/>
+                                        )
+                                    })
+                                : ''
+
                             }
                         </div>
                     </div>

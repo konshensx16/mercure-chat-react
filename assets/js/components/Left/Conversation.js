@@ -13,7 +13,7 @@ class Conversation extends React.Component {
                         <div className="d-flex align-items-center justify-content-between mb-1">
                             <h6 className="mb-0">{this.props.conversation.username}</h6>
                             <small
-                                className="small font-weight-bold">{this.props.conversation.createdAt}</small>
+                                className="small font-weight-bold">{new Date(this.props.conversation.createdAt).toLocaleDateString()}</small>
                         </div>
                         <p className="font-italic mb-0 text-small">{this.props.conversation.content}</p>
                     </div>

@@ -3,12 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="17d7366a-e4b3-4c66-b55e-d169fa43acf5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/components/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/components/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/actions/conversation.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/actions/conversation.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/js/components/Left/Conversation.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/components/Left/Conversation.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/components/Right/Blank.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/components/Right/Blank.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/components/Right/Message.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/components/Right/Message.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -192,7 +189,7 @@
       <workItem from="1588525321325" duration="3782000" />
       <workItem from="1588529121766" duration="172000" />
       <workItem from="1596020314267" duration="450000" />
-      <workItem from="1596024754419" duration="9467000" />
+      <workItem from="1596024754419" duration="15866000" />
     </task>
     <servers />
   </component>
@@ -217,17 +214,21 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="450" y="189" width="540" height="524" key="StructurePopup/0.0.1440.900@0.0.1440.900" timestamp="1596114524147" />
-    <state width="500" height="445" key="SwitcherDM" timestamp="1596112790280">
+    <state width="500" height="445" key="SwitcherDM" timestamp="1596136435107">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="500" height="445" key="SwitcherDM/0.0.1440.900@0.0.1440.900" timestamp="1596112790280" />
+    <state width="500" height="445" key="SwitcherDM/0.0.1440.900@0.0.1440.900" timestamp="1596136435107" />
     <state x="320" y="190" key="Vcs.Push.Dialog.v2" timestamp="1596104520374">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="320" y="190" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1596104520374" />
-    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup" timestamp="1596117666757">
+    <state x="368" y="212" width="703" height="476" key="find.popup" timestamp="1596133930769">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1596117666757" />
+    <state x="368" y="212" width="703" height="476" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1596133930769" />
+    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup" timestamp="1596139453524">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1596139453524" />
   </component>
 </project>
