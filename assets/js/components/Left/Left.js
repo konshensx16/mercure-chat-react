@@ -1,22 +1,20 @@
 import React from 'react';
 import Conversation from "./Conversation";
+import {connect} from 'react-redux'
+import * as actionCreators from '../../actions/conversation'
 
+const mapStateToProps = (state) => {
+    return state;
+};
 
 class Left extends React.Component {
     constructor(props) {
         super(props);
-
-        this.state = {
-            conversations: [
-                {
-                    id: 1,
-                    content: 'heheheheheh',
-                    date: new Date(),
-                    username: 'konshensx'
-                }
-            ]
-        }
     }
+    componentWillMount() {
+        this.props.fetchConversations();
+    }
+
     render() {
         return (
             <div className="col-5 px-0">
@@ -29,7 +27,7 @@ class Left extends React.Component {
                     <div className="messages-box">
                         <div className="list-group rounded-0">
                             {
-                                this.state.conversations.map((conversation, index) => {
+                                this.props.items.map((conversation, index) => {
                                     return (
                                         <Conversation conversation={conversation} key={index}/>
                                     )
@@ -43,4 +41,4 @@ class Left extends React.Component {
     }
 }
 
-export default Left;
+export default connect(mapStateToProps, actionCreators)(Left);

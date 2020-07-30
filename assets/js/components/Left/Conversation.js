@@ -2,10 +2,6 @@ import React from 'react';
 
 
 class Conversation extends React.Component {
-    componentWillMount() {
-        
-    }
-
     render() {
         return (
             <a href="#" className="list-group-item list-group-item-action rounded-0">
@@ -16,7 +12,7 @@ class Conversation extends React.Component {
                         <div className="d-flex align-items-center justify-content-between mb-1">
                             <h6 className="mb-0">{this.props.conversation.username}</h6>
                             <small
-                                className="small font-weight-bold">{this.props.conversation.date.toLocaleDateString()}</small>
+                                className="small font-weight-bold">{this.props.conversation.createdAt}</small>
                         </div>
                         <p className="font-italic mb-0 text-small">{this.props.conversation.content}</p>
                     </div>
