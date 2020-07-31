@@ -18,10 +18,9 @@ class Right extends React.Component {
     // scroll down to the latest message
     scrollDown() {
         this.bodyRef.current.scrollTop = this.bodyRef.current.scrollHeight;
-        console.log(this.bodyRef.current.scrollHeight);
     }
 
-    componentDidUpdate(prevProps, prevState) {
+    componentDidUpdate(prevProps) {
         // fetch the messages for this conversation
         const id = this.props.match.params.id;
         if (id !== prevProps.match.params.id) {

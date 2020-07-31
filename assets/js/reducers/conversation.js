@@ -35,7 +35,7 @@ export default (state = {
                 return conversation.conversationId == action.conversationId
                     ? Object.assign({}, conversation, {messages: action.messages})
                     : conversation
-                ;
+                    ;
             });
 
             return {
@@ -48,7 +48,12 @@ export default (state = {
         case ADD_MESSAGE:
             const _newItemsFinal = state.items.map(item => {
                 return item.conversationId == action.conversationId
-                    ? Object.assign({}, item, {messages: [...item.messages, action.message]})
+                    ?
+                    (
+                        item.content = action.message.content,
+                        item.createdAt = action.message.createdAt,
+                        Object.assign({}, item, {messages: [...item.messages, action.message]})
+                    )
                     : Object.assign({}, item);
             });
             return {
