@@ -4,8 +4,12 @@
     <list default="true" id="17d7366a-e4b3-4c66-b55e-d169fa43acf5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/js/actions/conversation.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/actions/conversation.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/components/Left/Conversation.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/components/Left/Conversation.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/components/Right/Message.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/components/Right/Message.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/components/Left/Left.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/components/Left/Left.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/components/Right/Input.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/components/Right/Input.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/components/Right/Right.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/components/Right/Right.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/constants/actionTypes.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/constants/actionTypes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/reducers/conversation.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/reducers/conversation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/updates.db" beforeDir="false" afterPath="$PROJECT_DIR$/updates.db" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -189,7 +193,7 @@
       <workItem from="1588525321325" duration="3782000" />
       <workItem from="1588529121766" duration="172000" />
       <workItem from="1596020314267" duration="450000" />
-      <workItem from="1596024754419" duration="15866000" />
+      <workItem from="1596024754419" duration="25469000" />
     </task>
     <servers />
   </component>
@@ -226,9 +230,9 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="368" y="212" width="703" height="476" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1596133930769" />
-    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup" timestamp="1596139453524">
+    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup" timestamp="1596218104989">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1596139453524" />
+    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1596218104989" />
   </component>
 </project>

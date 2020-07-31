@@ -1,9 +1,14 @@
 import React from 'react'
+import {connect} from 'react-redux'
+import * as actionCreators from '../../actions/conversation'
+
+const mapStateToProps = (state) => {
+    return state;
+};
 
 class Input extends React.Component {
-    constructor(props) {
-        super(props);
-
+    constructor() {
+        super();
         this.state = {
             content: ''
         };
@@ -11,18 +16,21 @@ class Input extends React.Component {
         this.handleChange = this.handleChange.bind(this);
         this.sendMessage = this.sendMessage.bind(this);
     }
+
     sendMessage(event) {
-        event.preventDefault()
-        alert(this.state.content)
+        event.preventDefault();
+        this.props.addMessage(this.state.content, this.props.id).then(() => {
+            this.setState({content: ''})
+        });
     }
 
-    handleChange (event) {
+    handleChange(event) {
         this.setState(
             {content: event.target.value}
         )
     }
 
-    render () {
+    render() {
         return (
             <form action="#" className="bg-light">
                 <div className="input-group">
@@ -30,12 +38,13 @@ class Input extends React.Component {
                            aria-describedby="button-addon2"
                            onChange={this.handleChange}
                            value={this.state.content}
-                           className="form-control rounded-0 border-0 py-4 bg-light" />
+                           className="form-control rounded-0 border-0 py-4 bg-light"/>
                     <div className="input-group-append">
                         <button id="button-addon2" type="submit"
                                 onClick={this.sendMessage}
                                 className="btn btn-link">
-                            <i className="fa fa-paper-plane"></i></button>
+                            <i className="fa fa-paper-plane"></i>
+                        </button>
                     </div>
                 </div>
             </form>
@@ -43,4 +52,4 @@ class Input extends React.Component {
     }
 }
 
-export default Input;
+export default connect(mapStateToProps, actionCreators)(Input);

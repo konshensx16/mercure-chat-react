@@ -2,7 +2,9 @@ import {
     GET_CONVERSATIONS,
     RECIEVE_CONVERSATIONS,
     GET_MESSAGES,
-    RECIEVE_MESSAGES
+    RECIEVE_MESSAGES,
+    ADD_MESSAGE,
+    POST_MESSAGE
 } from "../constants/actionTypes";
 
 export const requestConversations = () => ({
@@ -29,6 +31,13 @@ export const receiveMessages = (json, id) => {
     });
 };
 
+export const postMessage = (json, id) => {
+    return {
+        type: ADD_MESSAGE,
+        message: json,
+        conversationId: id
+    }
+};
 
 export const fetchConversations = () => dispatch => {
     dispatch(requestConversations());
@@ -48,5 +57,19 @@ export const fetchMessages = (id) => dispatch => {
         .then(response => response.json())
         .then(json => {
             return dispatch(receiveMessages(json, id))
+        })
+};
+
+
+export const addMessage = (content, conversationId) => dispatch => {
+    let formData = new FormData();
+    formData.append('content', content);
+    return fetch(`/messages/${conversationId}`, {
+        method: "POST",
+        body: formData
+    })
+        .then(response => response.json())
+        .then(json => {
+            return dispatch(postMessage(json, conversationId))
         })
 };

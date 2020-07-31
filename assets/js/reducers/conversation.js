@@ -1,6 +1,7 @@
 import {
     GET_CONVERSATIONS, RECIEVE_CONVERSATIONS,
-    GET_MESSAGES, RECIEVE_MESSAGES
+    GET_MESSAGES, RECIEVE_MESSAGES,
+    POST_MESSAGE, ADD_MESSAGE
 } from "../constants/actionTypes";
 
 export default (state = {
@@ -42,6 +43,19 @@ export default (state = {
                 isFetching: false,
                 didInvalidate: false,
                 items: [..._newConversations]
+            };
+
+        case ADD_MESSAGE:
+            const _newItemsFinal = state.items.map(item => {
+                return item.conversationId == action.conversationId
+                    ? Object.assign({}, item, {messages: [...item.messages, action.message]})
+                    : Object.assign({}, item);
+            });
+            return {
+                ...state,
+                isFetching: false,
+                didInvalidate: false,
+                items: [..._newItemsFinal]
             };
         default:
             return state;

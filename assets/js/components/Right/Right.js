@@ -12,39 +12,57 @@ const mapStateToProps = (state) => {
 class Right extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-            messages: [
-                {
-                    id: 1,
-                    message: 'Hello world'
-                }
-            ]
-        };
 
+        this.bodyRef = React.createRef();
     }
-    componentDidUpdate(prevProps) {
+    // scroll down to the latest message
+    scrollDown() {
+        this.bodyRef.current.scrollTop = this.bodyRef.current.scrollHeight;
+        console.log(this.bodyRef.current.scrollHeight);
+    }
+
+    componentDidUpdate(prevProps, prevState) {
         // fetch the messages for this conversation
         const id = this.props.match.params.id;
         if (id !== prevProps.match.params.id) {
             // call the fetch function again
             this.props.fetchMessages(id);
         }
+        // TODO: scroll to the bottom if the messages count changes
+        const _conversationIndex = this.props.items.findIndex(
+            conversation => {
+                return conversation.conversationId == this.props.match.params.id
+            }
+        );
+
+        if (
+            _conversationIndex != -1
+            && this.props.items[_conversationIndex].messages?.length
+            && prevProps.items[_conversationIndex].messages?.length
+        )
+        {
+            this.scrollDown();
+        }
     }
 
     componentDidMount() {
         const id = this.props.match.params.id;
-        this.props.fetchMessages(id);
+        this.props.fetchMessages(id).then(() => {
+            this.scrollDown();
+        });
     }
 
     render() {
         const _conversationIndex = this.props.items.findIndex(
-            conversation => conversation.conversationId == this.props.match.params.id
+            conversation => {
+                return conversation.conversationId == this.props.match.params.id
+            }
         );
         return (
             <div className="col-7 px-0">
-                <div className="px-4 py-5 chat-box bg-white" ref="messagesBody">
+                <div className="px-4 py-5 chat-box bg-white" ref={this.bodyRef}>
                     {
-                        this.props.items[_conversationIndex].messages != undefined
+                        this.props.items != undefined && this.props.items[_conversationIndex].messages != undefined
                             ? this.props.items[_conversationIndex]
                                 .messages.map((message, index) => {
                             return (
@@ -54,7 +72,7 @@ class Right extends React.Component {
                     }
                 </div>
 
-                <Input/>
+                <Input id={this.props.match.params.id} />
             </div>
         );
     }
