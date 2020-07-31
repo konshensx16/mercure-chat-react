@@ -21,18 +21,22 @@ class Right extends React.Component {
     }
 
     componentDidUpdate(prevProps) {
-        // fetch the messages for this conversation
-        const id = this.props.match.params.id;
-        if (id !== prevProps.match.params.id) {
-            // call the fetch function again
-            this.props.fetchMessages(id);
-        }
-        // TODO: scroll to the bottom if the messages count changes
         const _conversationIndex = this.props.items.findIndex(
             conversation => {
                 return conversation.conversationId == this.props.match.params.id
             }
         );
+
+        // fetch the messages for this conversation
+        const id = this.props.match.params.id;
+        if (id !== prevProps.match.params.id) {
+            // call the fetch function again but only if it's the first time.
+            if (this.props.items[_conversationIndex].messages == undefined) {
+                this.props.fetchMessages(id);
+            }
+        }
+        // TODO: scroll to the bottom if the messages count changes
+
 
         if (
             _conversationIndex != -1
