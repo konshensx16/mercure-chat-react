@@ -14,6 +14,8 @@ class Right extends React.Component {
         super(props);
         this.bodyRef = React.createRef();
         this.state = {
+            id: null,
+            _conversationIndex: -1,
             eventSource: null
         }
     }
@@ -24,16 +26,10 @@ class Right extends React.Component {
     }
 
     componentDidUpdate(prevProps) {
-        const _conversationIndex = this.props.items.findIndex(
-            conversation => {
-                return conversation.conversationId == this.props.match.params.id
-            }
-        );
-
         if (
-            _conversationIndex != -1
-            && this.props.items[_conversationIndex].messages?.length
-            && prevProps.items[_conversationIndex].messages?.length
+            this.state._conversationIndex != -1
+            && this.props.items[this.state._conversationIndex].messages?.length
+            && prevProps.items[this.state._conversationIndex].messages?.length
         ) {
             this.scrollDown();
         }
@@ -47,6 +43,9 @@ class Right extends React.Component {
                 return conversation.conversationId == this.props.match.params.id
             }
         );
+        this.setState({
+            _conversationIndex: _conversationIndex
+        });
         if (this.props.items[_conversationIndex].messages == undefined) {
             this.props.fetchMessages(id).then(() => {
                 this.scrollDown();
@@ -80,19 +79,15 @@ class Right extends React.Component {
 
 
     render() {
-        console.log(this.props.items);
-        const _conversationIndex = this.props.items.findIndex(
-            conversation => {
-                return conversation.conversationId == this.props.match.params.id
-            }
-        );
 
         return (
             <div className="col-7 px-0">
                 <div className="px-4 py-5 chat-box bg-white" ref={this.bodyRef}>
                     {
-                        this.props.items != undefined && this.props.items[_conversationIndex].messages != undefined
-                            ? this.props.items[_conversationIndex]
+                        this.state._conversationIndex != -1
+                        && this.props.items != undefined
+                        && this.props.items[this.state._conversationIndex].messages != undefined
+                            ? this.props.items[this.state._conversationIndex]
                                 .messages.map((message, index) => {
                                     return (
                                         <Message message={message} key={index}/>
