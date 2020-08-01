@@ -14,11 +14,12 @@ class App extends React.Component {
                     <Left/>
                     <Switch>
                         <Route path="/" component={Blank} exact />
-                        <Route path="/conversation/:id" component={Right} />
+                        <Route path="/conversation/:id"
+                               render={props => <Right {...props} key={props.match.params.id}></Right> }
+                        />
                     </Switch>
                 </div>
             </div>
-
         );
     }
 }

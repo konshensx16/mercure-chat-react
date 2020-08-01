@@ -23,6 +23,7 @@ class Left extends React.Component {
                     withCredentials: true
                 });
                 eventSource.onmessage = function (event) {
+                    debugger
                     const data = JSON.parse(event.data);
                     _t.props.setLastMessage(data, data.conversation.id);
                 }
