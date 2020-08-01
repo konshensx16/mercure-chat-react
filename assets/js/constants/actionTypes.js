@@ -4,3 +4,6 @@ export const GET_MESSAGES = 'GET_MESSAGES';
 export const RECIEVE_MESSAGES = 'RECIEVE_MESSAGES';
 export const ADD_MESSAGE = 'ADD_MESSAGE';
 export const POST_MESSAGE = 'POST_MESSAGE';
+export const SET_HUBURL = 'SET_HUBURL';
+export const SET_USERNAME = 'SET_USERNAME';
+export const SET_LAST_MESSAGE = 'SET_LAST_MESSAGE';

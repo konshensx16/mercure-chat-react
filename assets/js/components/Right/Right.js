@@ -12,9 +12,12 @@ const mapStateToProps = (state) => {
 class Right extends React.Component {
     constructor(props) {
         super(props);
-
         this.bodyRef = React.createRef();
+        this.state = {
+            eventSource: null
+        }
     }
+
     // scroll down to the latest message
     scrollDown() {
         this.bodyRef.current.scrollTop = this.bodyRef.current.scrollHeight;
@@ -35,23 +38,31 @@ class Right extends React.Component {
                 this.props.fetchMessages(id);
             }
         }
-        // TODO: scroll to the bottom if the messages count changes
-
-
         if (
             _conversationIndex != -1
             && this.props.items[_conversationIndex].messages?.length
             && prevProps.items[_conversationIndex].messages?.length
-        )
-        {
+        ) {
             this.scrollDown();
         }
     }
 
     componentDidMount() {
+        const _t = this;
         const id = this.props.match.params.id;
         this.props.fetchMessages(id).then(() => {
             this.scrollDown();
+            if (this.state.eventSource === null) {
+                let url = new URL(this.props.hubUrl);
+                url.searchParams.append('topic', `/conversations/${this.props.match.params.id}`)
+                this.eventSource = new EventSource(url, {
+                    withCredentials: true
+                });
+                this.eventSource.onmessage = function (event) {
+                    const data = JSON.parse(event.data);
+                    _t.props.postMessage(data, data.conversation.id);
+                }
+            }
         });
     }
 
@@ -68,14 +79,14 @@ class Right extends React.Component {
                         this.props.items != undefined && this.props.items[_conversationIndex].messages != undefined
                             ? this.props.items[_conversationIndex]
                                 .messages.map((message, index) => {
-                            return (
-                                <Message message={message} key={index}/>
-                            )
-                        }) : ''
+                                    return (
+                                        <Message message={message} key={index}/>
+                                    )
+                                }) : ''
                     }
                 </div>
 
-                <Input id={this.props.match.params.id} />
+                <Input id={this.props.match.params.id}/>
             </div>
         );
     }

@@ -1,14 +1,16 @@
 import {
     GET_CONVERSATIONS, RECIEVE_CONVERSATIONS,
     GET_MESSAGES, RECIEVE_MESSAGES,
-    POST_MESSAGE, ADD_MESSAGE
+    POST_MESSAGE, ADD_MESSAGE, SET_HUBURL, SET_USERNAME,
+    SET_LAST_MESSAGE
 } from "../constants/actionTypes";
 
 export default (state = {
     isFetching: false,
     didInvalidate: false,
     items: [],
-    hubUrl: null
+    hubUrl: null,
+    username: null
 }, action) => {
     switch (action.type) {
         case GET_CONVERSATIONS:
@@ -50,9 +52,7 @@ export default (state = {
                 return item.conversationId == action.conversationId
                     ?
                     (
-                        item.content = action.message.content,
-                        item.createdAt = action.message.createdAt,
-                        Object.assign({}, item, {messages: [...item.messages, action.message]})
+                            Object.assign({}, item, {messages: [...item.messages, action.message]})
                     )
                     : Object.assign({}, item);
             });
@@ -61,6 +61,35 @@ export default (state = {
                 isFetching: false,
                 didInvalidate: false,
                 items: [..._newItemsFinal]
+            };
+        case SET_LAST_MESSAGE:
+            const _newItemsFinal2 = state.items.map(item => {
+                return item.conversationId == action.conversationId
+                    ?
+                    (
+                        item.content = action.message.content,
+                        item.createdAt = action.message.createdAt,
+                        Object.assign({}, item)
+                    )
+                    : Object.assign({}, item);
+            });
+            return {
+                ...state,
+                isFetching: false,
+                didInvalidate: false,
+                items: [..._newItemsFinal2]
+            };
+        case SET_HUBURL:
+            return {
+                ...state,
+                isFetching: false,
+                didInvalidate: false,
+                hubUrl: action.url
+            };
+        case SET_USERNAME:
+            return {
+                ...state,
+                username: action.username
             };
         default:
             return state;

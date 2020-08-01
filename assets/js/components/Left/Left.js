@@ -10,9 +10,23 @@ const mapStateToProps = (state) => {
 class Left extends React.Component {
     constructor(props) {
         super(props);
+
     }
+
     componentWillMount() {
-        this.props.fetchConversations();
+        const _t = this;
+        this.props.fetchConversations()
+            .then(() => {
+                let url = new URL(this.props.hubUrl);
+                url.searchParams.append('topic', `/conversations/${this.props.username}`);
+                const eventSource = new EventSource(url, {
+                    withCredentials: true
+                });
+                eventSource.onmessage = function (event) {
+                    const data = JSON.parse(event.data);
+                    _t.props.setLastMessage(data, data.conversation.id);
+                }
+            });
     }
 
     render() {
@@ -32,11 +46,11 @@ class Left extends React.Component {
                                             return a.createdAt < b.createdAt;
                                         })
                                         .map((conversation, index) => {
-                                        return (
-                                            <Conversation conversation={conversation} key={index}/>
-                                        )
-                                    })
-                                : ''
+                                            return (
+                                                <Conversation conversation={conversation} key={index}/>
+                                            )
+                                        })
+                                    : ''
                             }
                         </div>
                     </div>
