@@ -29,7 +29,7 @@ class Right extends React.Component {
                 return conversation.conversationId == this.props.match.params.id
             }
         );
-        
+
         if (
             _conversationIndex != -1
             && this.props.items[_conversationIndex].messages?.length
@@ -58,6 +58,7 @@ class Right extends React.Component {
                     });
                     this.eventSource.onmessage = function (event) {
                         const data = JSON.parse(event.data);
+                        debugger
                         _t.props.postMessage(data, data.conversation.id);
                     }
                 }

@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="17d7366a-e4b3-4c66-b55e-d169fa43acf5" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/components/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/components/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/components/Left/Left.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/components/Left/Left.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/js/components/Right/Right.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/components/Right/Right.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/mercure" beforeDir="false" afterPath="$PROJECT_DIR$/bin/mercure" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/updates.db" beforeDir="false" afterPath="$PROJECT_DIR$/updates.db" afterDir="false" />
@@ -212,10 +211,10 @@
     </option>
   </component>
   <component name="WindowStateProjectService">
-    <state x="450" y="189" width="540" height="524" key="StructurePopup" timestamp="1596114524147">
+    <state x="450" y="189" width="540" height="524" key="StructurePopup" timestamp="1596290921780">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="450" y="189" width="540" height="524" key="StructurePopup/0.0.1440.900@0.0.1440.900" timestamp="1596114524147" />
+    <state x="450" y="189" width="540" height="524" key="StructurePopup/0.0.1440.900@0.0.1440.900" timestamp="1596290921780" />
     <state width="500" height="445" key="SwitcherDM" timestamp="1596136435107">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
@@ -228,9 +227,9 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="368" y="212" width="703" height="476" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1596218543426" />
-    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup" timestamp="1596289192117">
+    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup" timestamp="1596292903250">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1596289192117" />
+    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1596292903250" />
   </component>
 </project>
